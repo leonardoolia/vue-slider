@@ -6,6 +6,7 @@ const app = createApp({
         return {
             destinations,
             currentIndex: 0,
+            autoPlay: null,
         }
     },
 
@@ -20,6 +21,16 @@ const app = createApp({
             const lastIndex = this.isLastIndex;
             if (this.firstIndex) this.currentIndex = lastIndex
             else this.currentIndex--
+        },
+
+        stopAutoPlay() {
+            clearInterval(this.autoPlay)
+        },
+
+        startAutoPlay() {
+            this.autoPlay = setInterval(() => {
+                this.goNext()
+            }, 3000);
         }
     },
 
@@ -34,9 +45,7 @@ const app = createApp({
     },
 
     mounted() {
-        setInterval(() => {
-            this.goNext()
-        }, 3000);
+        this.startAutoPlay()
     }
 
 });
