@@ -37,7 +37,8 @@
 
       <!-- Gallery -->
       <div class="gallery">
-        <figure v-for="(destination, i) in destinations" :class="{active: i === currentIndex}">
+        <figure v-for="(destination, i) in destinations" :class="{active: i === currentIndex}"
+          @mouseenter="stopAutoPlay" @mouseleave="startAutoPlay">
           <figcaption>
             <h2>{{destination.name}}</h2>
             <h3>{{destination.description}}</h3>
