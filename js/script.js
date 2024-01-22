@@ -5,6 +5,7 @@ const app = createApp({
     data() {
         return {
             destinations,
+            currentIndex: 0,
         }
     }
 });
