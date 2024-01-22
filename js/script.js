@@ -31,6 +31,12 @@ const app = createApp({
         firstIndex() {
             return this.currentIndex === 0;
         }
+    },
+
+    mounted() {
+        setInterval(() => {
+            this.goNext()
+        }, 3000);
     }
 
 });
